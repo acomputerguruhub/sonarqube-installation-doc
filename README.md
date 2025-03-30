@@ -37,3 +37,37 @@ sudo passwd postgres
 ```
 su - postgres
 ```
+* Create a user named sonar.
+```
+createuser sonar
+```
+* Log into PostgreSQL.
+```
+psql
+```
+* Set a password for the sonar user. Use a strong password in place of type_strong_password.
+```
+ALTER USER sonar WITH ENCRYPTED password 'type_strong_password';
+```
+* Create SonarQube database and set its owner to sonar.
+```
+CREATE DATABASE sonarqube OWNER sonar;
+```
+* Grant all privileges on SonarQube database to the user sonar.
+```
+GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
+```
+* To Exit from PostgreSQL.
+```
+\q
+```
+* Return to your non-root sudo user account.
+```
+exit
+```
+## 4. Download and Install SonarQube
+* Install the zip utility, which is needed to unzip the SonarQube files.
+```
+sudo apt install -y zip
+```
+* Locate the latest download URL from [SonarQube official download page](https://www.sonarsource.com/products/sonarqube/downloads/). At the time of writing this document, the download URL was as follows:
