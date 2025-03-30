@@ -110,7 +110,7 @@ Step 2: Uncomment the lines, and add the database user sonar and password my_str
 sonar.jdbc.username=sonar
 sonar.jdbc.password=my_strong_password
 ```
-Step 3: Below those two lines, add ```sonar.jdbc.url```.
+Step 3: add ```sonar.jdbc.url``` line below to the above two lines.
 ```
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
 ```
