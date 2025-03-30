@@ -130,7 +130,9 @@ RUN_AS_USER=sonar
 Step 3: Save and exit the file.
 ## 7. Setup Systemd Service
 * Create a systemd service file to start SonarQube at system boot.
-  
+```
+sudo vi /etc/systemd/system/sonar.service
+```
 Step 1: Paste the following lines to the file.
 ```
 [Unit]
