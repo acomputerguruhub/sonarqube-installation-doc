@@ -115,3 +115,64 @@ Step 3: Below those two lines, add ```sonar.jdbc.url```.
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
 ```
 Step 4: Save and exit the file.
+## 7. Setup Systemd Service
+* Create a systemd service file to start SonarQube at system boot.
+Step 1: Paste the following lines to the file.
+```
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+User=sonar
+Group=sonar
+Restart=always
+
+LimitNOFILE=65536
+LimitNPROC=4096
+
+[Install]
+WantedBy=multi-user.target
+```
+Step 2: Save and exit the file.
+* Enable the SonarQube service to run at system startup.
+```
+sudo systemctl enable sonar
+```
+* Start the SonarQube service.
+```
+sudo systemctl start sonar
+```
+* Check the service status.
+```
+sudo systemctl status sonar
+```
+## 8. Modify Kernel System Limits
+* Edit the sysctl configuration file.
+```
+sudo vi /etc/sysctl.conf
+```
+Step 1: Add the following lines.
+```
+vm.max_map_count=262144
+fs.file-max=65536
+ulimit -n 65536
+ulimit -u 4096
+```
+Step 2: Save and exit the file.
+* Reboot the system to apply the changes.
+```
+sudo reboot
+```
+## 9. Access SonarQube Web Interface
+* Access SonarQube in a web browser at your server's IP address on port 9000. For example:
+```
+http://localhost:9000
+```
+* Log in with username admin and password admin. SonarQube will prompt you to change your password.
+WARNING! SonarQube ships with a default administrator username and password of admin. This default password is not secure, so you’ll want to update it to something more secure as a good security practice.
