@@ -72,7 +72,7 @@ sudo apt install -y zip
 ```
 * Locate the latest download URL from [SonarQube official download page](https://www.sonarsource.com/products/sonarqube/downloads/).
 ```
-https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.3.0.104237.zip
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.3.0.104237.zip
 ```
 * Unzip the downloaded file.
 ```
