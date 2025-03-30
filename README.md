@@ -115,8 +115,22 @@ Step 3: add ```sonar.jdbc.url``` line below to the above two lines.
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
 ```
 Step 4: Save and exit the file.
+* Edit the sonar script file.
+```
+sudo vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
+```
+Step 1: About 50 lines down, locate this line.
+```
+#RUN_AS_USER=
+```
+Step 2: Uncomment the line and change it to.
+```
+RUN_AS_USER=sonar
+```
+Step 3: Save and exit the file.
 ## 7. Setup Systemd Service
 * Create a systemd service file to start SonarQube at system boot.
+  
 Step 1: Paste the following lines to the file.
 ```
 [Unit]
