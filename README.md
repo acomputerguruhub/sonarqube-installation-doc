@@ -1,4 +1,4 @@
-# How To Install SonarQube on Ubuntu 20.04LTS
+# How To Install SonarQube on Ubuntu 22.04 LTS
 This document will talk about how to install SonarQube on Ubuntu 20.04LTS manually step by step, so that you know what is going on and learn from it.
 
 ## 1. Prepare your Ubuntu server
