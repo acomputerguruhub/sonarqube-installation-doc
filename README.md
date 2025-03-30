@@ -70,4 +70,15 @@ exit
 ```
 sudo apt install -y zip
 ```
-* Locate the latest download URL from [SonarQube official download page](https://www.sonarsource.com/products/sonarqube/downloads/). At the time of writing this document, the download URL was as follows:
+* Locate the latest download URL from [SonarQube official download page](https://www.sonarsource.com/products/sonarqube/downloads/).
+```
+https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.3.0.104237.zip
+```
+* Unzip the downloaded file.
+```
+sudo unzip sonarqube-25.3.0.104237.zip
+```
+* Move the unzipped files to /opt/sonarqube directory
+```
+sudo mv sonarqube-9.0.1.46107 /opt/sonarqube
+```
