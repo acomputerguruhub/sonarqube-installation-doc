@@ -84,3 +84,34 @@ sudo mv sonarqube-9.0.1.46107 /opt/sonarqube
 ```
 ## 5. Add SonarQube Group and User
 * Create a ```sonar``` group.
+```
+sudo groupadd sonar
+```
+* Create a ```sonar``` user and set ```/opt/sonarqube``` as the home directory.
+```
+sudo useradd -d /opt/sonarqube -g sonar sonar
+```
+* Grant the ```sonar``` user access to the ```/opt/sonarqube``` directory.
+```
+sudo chown sonar:sonar /opt/sonarqube -R
+```
+## 6. Configure SonarQube
+* Edit the SonarQube configuration file.
+```
+sudo vi /opt/sonarqube/conf/sonar.properties
+```
+Step 1: Find the following lines.
+```
+#sonar.jdbc.username=
+#sonar.jdbc.password=
+```
+Step 2: Uncomment the lines, and add the database user sonar and password my_strong_password you created in Section 3.
+```
+sonar.jdbc.username=sonar
+sonar.jdbc.password=my_strong_password
+```
+Step 3: Below those two lines, add ```sonar.jdbc.url```.
+```
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
+```
+Step 4: Save and exit the file.
