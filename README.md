@@ -82,3 +82,5 @@ sudo unzip sonarqube-25.3.0.104237.zip
 ```
 sudo mv sonarqube-9.0.1.46107 /opt/sonarqube
 ```
+## 5. Add SonarQube Group and User
+* Create a ```sonar``` group.
